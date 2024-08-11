@@ -2,10 +2,10 @@
 docker build -t the-youtube-scrapper-dockerimage .
 
 #2 spust build lokalne samostatne K6 s HTML reportom do lokalu
-docker run --rm -v "${PWD}/k6:/app/k6" the-youtube-scrapper-dockerimage:latest npm run k6
+docker run --rm -v "${PWD}/output:/app/output" the-youtube-scrapper-dockerimage:latest python3 main.py --video_id np7vUrwjMHA --out_dir ./output/np7vUrwjMHA.json
 
 #3 spustenie lokalne v instalovanej python zone, download metadata
-$ python3 main.py --video_id np7vUrwjMHA --out_dir ./output
+$ python3 main.py --video_id np7vUrwjMHA --out_dir ./output/np7vUrwjMHA.json
 
 $4 spustenie lokalne paralelne v instalovanej python zone, download metadata
 $ python3 main_parallel.py --input_file <enter-file-name-with-list-of-video-ids(one-video-id-per-line)> --out_dir <enter-output-directory-path>
