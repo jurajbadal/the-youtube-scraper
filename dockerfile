@@ -1,7 +1,8 @@
 FROM python:3
 
+WORKDIR /app
 COPY output/ /app/output
-COPY main.py  /app
+COPY main.py  /app/
 COPY scraper/ /app/scraper/
 
 
